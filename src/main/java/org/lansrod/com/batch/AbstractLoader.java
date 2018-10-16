@@ -1,4 +1,4 @@
-package org.lansrod.stock.batch;
+package org.lansrod.com.batch;
 
 public abstract class AbstractLoader {
 

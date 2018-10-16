@@ -1,6 +1,4 @@
-package src.main.java.org.lansrod.stock.batch;
-
-import org.lansrod.stock.batch.AbstractLoader;
+package org.lansrod.com.batch;
 
 public class CryptocurrencyLoader extends AbstractLoader{
 
