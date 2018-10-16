@@ -1,0 +1,33 @@
+<workflow-app name="GetCSV"
+	xmlns="uri:oozie:workflow:0.5">
+	<global>
+		<configuration>
+			<property>
+				<name>oozie.launcher.mapred.job.queue.name</name>
+				<value>default</value>
+			</property>
+		</configuration>
+	</global>
+
+	<start to="GetCSV" />
+	<action name="GetCSV">
+
+		<shell xmlns="uri:oozie:shell-action:0.2">
+			<job-tracker>${jobTracker}</job-tracker>
+			<name-node>${nameNode}</name-node>
+			<exec>GetCSVData.sh</exec>
+			<file>/user/omran/mydata/workflows/shell_oozie/GetCSVData.sh#GetCSVData.sh
+			</file>
+		</shell>
+
+		<ok to="end" />
+		<error to="kill" />
+	</action>
+
+	<kill name="kill">
+		<message>Action failed, error
+			message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+	</kill>
+	<end name="end" />
+
+</workflow-app>
